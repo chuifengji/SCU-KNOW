@@ -86,7 +86,7 @@ Page({
       })
     } else if (feedback_question && feedback_question != this.data.lastfeedback) {
       wx.request({
-        url: 'https://wenda.new-thread.com/api/feedback/',
+        url: '',
         method: 'POST',
         data: {
           feedback_question: feedback_question,
