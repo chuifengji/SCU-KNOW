@@ -2,7 +2,7 @@ App({
   onLaunch: function () {
     var that = this
     wx.request({
-      url: '',
+      url: 'https://wenda-data.nt-geek.club/wenda.txt',
       header: {
         'content-type': 'text/plain' // 默认值
       },
