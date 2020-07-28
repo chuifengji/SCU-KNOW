@@ -46,7 +46,13 @@ netFeedback(feedback_question,feedback_type){
   }
   return this._request.postRequest(this._baseUrl+"feedback/",data).then(res=>{res.data})
 }
-
+/**
+ * 
+ * 点评
+ */
+netRemark(id){
+  return this._request.postRequest(this._baseUrl+""+id+"/",{}).then(res=>{res.data})//TODO：这里接口为空，不知是遗漏了还是本来就没有，忘了hhh 20-07-28
+}
 }
 export default netHandlers
 

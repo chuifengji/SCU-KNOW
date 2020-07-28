@@ -80,13 +80,7 @@ Page({
         title: '反馈成功',
       })
       let id = this.data.question_id
-      wx.request({
-        url: '' + id + '/',
-        method: 'POST',
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-      })
+      app.netHandlers.netRemark(id);
       cache[id] = true;
       wx.setStorageSync('cache_key', cache);
       that.setData({
