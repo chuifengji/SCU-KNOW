@@ -2,6 +2,7 @@
 //获取应用实例
 const util = require('../../utils/util.js')
 const app = getApp()
+// import netHandler from "../../utils/netHandlers"
 Page({
   data: {
     currentTab: 0, //预设当前项的值
