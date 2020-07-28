@@ -22,11 +22,15 @@ Page({
   onLoad: function () {
     var that = this;
     if (app.globalData.getted) {
+      console.log("data is getted!")
       that.getData();
     } else {
+      console.log("data is not getted!")
       app.userInfoReadyCallback = res => {
-        var datas = res
-        var everyClickLen = ((198 * datas[0].navbar_info.length - 710) + 40) / (datas[0].navbar_info.length - 1)
+        console.log("data is not getted but cb!")
+        console.log(res)
+        let datas = res
+        let everyClickLen = ((198 * datas[0].navbar_info.length - 710) + 40) / (datas[0].navbar_info.length - 1)
         that.setData({
           navH: app.globalData.navHeight,
           tabh: 2 * app.globalData.navHeight + 70,

@@ -1,8 +1,7 @@
 /**
- * 对所有网络请求的封装,cloud端除外
+ * 对所有网络请求的封装
  */
 import config from "./config.js"
-console.log(config)
 import request from './request.js'
 class netHandlers {
   constructor() {
@@ -27,7 +26,7 @@ netGetData() {
  let header = {
   'content-type': 'text/plain' // 默认值
 }
- return this._request.getRequest(this._baseUrl + '/personal/login',{},header).then(res => res.data)
+ return this._request.getRequest(config.request_cloud_url,{},header).then(res => res.data)
 }
 /**
  * 

@@ -1,32 +1,19 @@
+import netHandlers from "./utils/netHandlers"
 App({
+  netHandlers : new netHandlers(),//全局注册/实例化 网络请求类。
   onLaunch: function () {
     var that = this
-    wx.request({
-      url: 'https://wenda-data.nt-geek.club/wenda.txt',
-      header: {
-        'content-type': 'text/plain' // 默认值
-      },
-      success: res => {
-        console.log(res.data)
-        wx.setStorage({
-          key: "datas",
-          data: res.data,
-          success:function(){
-            that.globalData.getted = 1
-          }
-        })
-        if (this.userInfoReadyCallback) {
-          this.userInfoReadyCallback(res.data)
-        }
-      },
-      fail:res=>{
-        wx.showToast({
-          title: '没能获取最新数据呢',
-          icon: 'none'
-        })
+    that.netHandlers.netGetData().then(data=>{
+      try{
+        wx.setStorageSync('datas', data);
         that.globalData.getted = 1
+        if (this.userInfoReadyCallback) {
+          this.userInfoReadyCallback(data)
+        }
+      }catch(err){
+       throw(err)
       }
-    }),
+    })
       // 获取系统状态栏信息
       wx.getSystemInfo({
         success: (e) => {
@@ -40,5 +27,6 @@ App({
     navHeight: 0,
     getted: 0,
     usestorage: 1
-  }
+  },
+ 
 })
