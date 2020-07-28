@@ -34,32 +34,28 @@ Page({
   }, 300),
   getData: function (value) {
     let that = this;
-    wx.request({
-      url: '' + value + '/',
-      success(res) {
-        console.log(res)
-        if (res.data.问题信息 == '未搜索到该问题') {
-          that.setData({
-            hasResult: 1,
-            bkdatas: '',
-            searchValue: value,
-            bool: 1
-          })
-        } else {
-          let bkdatas = res.data.问题信息;
-          for (let i = 0; i < bkdatas.length; i++) {
-            if (i == 0) {
-              bkdatas[i].animation_delay = 600
-            }
-            bkdatas[i].animation_delay = (i + 1) * 300
+    app.netHandlers.netSearch(value).then(data=>{
+      if (data.问题信息 === '未搜索到该问题') {//TODO： 之后接手的同学和后端同学规范下，看着难受。
+        that.setData({
+          hasResult: 1,
+          bkdatas: '',
+          searchValue: value,
+          bool: 1
+        })
+      } else {
+        let bkdatas = data.问题信息;
+        for (let i = 0; i < bkdatas.length; i++) {
+          if (i == 0) {
+            bkdatas[i].animation_delay = 600
           }
-          that.setData({
-            hasResult: 0,
-            searchValue: value,
-            bool: 0,
-            bkdatas: bkdatas
-          })
+          bkdatas[i].animation_delay = (i + 1) * 300
         }
+        that.setData({
+          hasResult: 0,
+          searchValue: value,
+          bool: 0,
+          bkdatas: bkdatas
+        })
       }
     })
   },
