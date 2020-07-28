@@ -1,0 +1,11 @@
+<!--components/CustomModal/CustomModal.wxml-->
+<view class="modal-con" wx:if="{{isShowModal}}">
+    <view class="modal-mask">
+     <view class="modal-box">
+     <view class="model-textOne">有什么建议可以反馈给我们</view>
+     <view class="model-textTwo">我们会采纳的！</view>
+     <view bindtap="cancle" class="model-reject">不了</view>
+     <view bindtap="_confirm" class="model-ok">好呀</view>
+     </view>
+    </view>
+</view>

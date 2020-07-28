@@ -1,0 +1,27 @@
+<!--pages/feedBack/feedBack.wxml-->
+<view class='nav bg-white' style='height:{{navH}}px'>
+  <view class='nav-title'>
+    小民问答
+  </view>
+</view>
+<view class="container" style="height:calc(100vh - {{2*navH}}rpx);top:{{2*navH}}rpx;position:fixed;width:750rpx;">
+<view class="virtual-nav" style="top:{{2*navH+30}}rpx">
+  <view class="nav-text">你的反馈</view>
+  <view class="backicon" bindtap='navBack' style="background-image:url('data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjIxMCI+PGRlZnM+PHN0eWxlLz48L2RlZnM+PHBhdGggZD0iTTc1Mi44MDM5NjggMGMxOC41NTg5NzYgMCAzNy4wMTc2IDYuNDUxMiA1MS4wNjE3NiAxOS41NTg0IDI4LjI5MDA0OCAyNi4xMTA5NzYgMjguMjkwMDQ4IDY4LjQwMTE1MiAwIDk0LjQwOTcyOGwtNDMxLjI2Nzg0IDM5OC4wMTg1NiA0MzEuMjY3ODQgMzk4LjAxODU2YzI4LjI5MDA0OCAyNi4xMTIgMjguMjkwMDQ4IDY4LjMwMDggMCA5NC40MTA3NTItMjguMDg4MzIgMjYuMTEyLTczLjgzNDQ5NiAyNi4xMTItMTAyLjAyNDE5MiAwbC00ODIuMzI5Ni00NDUuMjIzOTM2Yy0yOC40OTA3NTItMjYuMDA4NTc2LTI4LjQ5MDc1Mi02OC4xOTYzNTIgMC05NC4zMDczMjhsNDgyLjMyOTYtNDQ1LjMyNzM2QzcxNS45ODcwNzIgNi41NTM2IDczNC40NDU2OTYgMCA3NTIuODAzOTY4IDAiIGZpbGw9IiMyYzJjMmMiLz48L3N2Zz4=')"></view>
+</view>
+<view style="height:calc(100vh - {{2*navH+146}}rpx);top:{{2*navH+146}}rpx;position:fixed;width:750rpx;">
+  <view class="textOne" >请选择你想反馈的问题类型</view>
+  <view class="outSelect" bindtap="clickSelect" style="height:{{boolOne?96:250}}rpx;transition:height 0.3s;">
+    <view class="{{boolOne?'selectIconDown':'selectIconUp'}}"></view>
+    <view class="select selectOne">{{kindsOne}}</view>
+    <view class="select selectTwo" bindtap="selectTwo">{{kindsTwo}}</view>
+    <view class="select selectThree" bindtap="selectThree">{{kindsThree}}</view>
+  </view>
+  <view class="textTwo">可以说的详细一点吗？</view>
+  <textarea wx:if="{{!isShowText}}" class="textareaTwo" maxlength="100" bindfocus="selectUp" bindblur="blurInput" bindconfirm="confirmandput" focus="{{onFacus}}" value="{{feedback_question}}" ></textarea>
+  <view wx:else class="remarks" bindtap="onShowTextarea"><text wx:if="{{boolTwo}}" style="color: #b7b7b7;font-size: 30rpx;">请详细描述你的说明</text>{{feedback_question}}</view>
+  <view style="width:750rpx;height:188rpx;bottom:0;position:fixed">
+    <view class="submitButton {{bgchange?'bg2':'bg1'}}" bindtap="submit">提交</view>
+  </view>
+  </view>
+</view>

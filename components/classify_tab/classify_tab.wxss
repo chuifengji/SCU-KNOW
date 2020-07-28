@@ -1,0 +1,45 @@
+.tab-item{
+width: 315rpx;
+height: 190rpx;
+margin-bottom: 10rpx;
+margin-top: 30rpx;
+border-radius: 54rpx;
+margin-left: 40rpx;
+position: relative;
+}
+
+.tab-content{
+position:absolute;
+top: 42rpx;
+left: 42rpx; 
+width: 250rpx;
+color: white;
+font-size: 30rpx;
+height: 40rpx;
+text-align: left;
+}
+.round{
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 9rpx;
+  position: relative;
+  z-index: 2;
+}
+.roundv{
+  width: 18rpx;
+  height: 18rpx;
+  position: relative;
+  left:298rpx;
+  top: -16rpx;
+  z-index: 2;
+}
+.backicon{
+   position: relative;
+  height: 50rpx;
+  width: 50rpx;
+  left: 230rpx;
+  top: 82rpx;
+  background-size: cover;
+  color: white;
+}
+

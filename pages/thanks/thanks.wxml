@@ -1,0 +1,6 @@
+<!--pages/thanks/thanks.wxml-->
+<nav bindtoFeedback="tfd"></nav>
+<view class="iconThanks"></view>
+<view class="textThanksOne">谢谢你的反馈</view>
+<view class="textThanksTwo">我们会采纳的</view>
+<view class="textBack" bindtap="backindex">返回</view>

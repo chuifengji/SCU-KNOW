@@ -1,0 +1,35 @@
+<wxs src='../../utils/substring.wxs' module='tools'/>
+<!-- <view style="filter: grayscale(100%);">  -->
+<nav bindtoFeedback="toFeedback"></nav>
+<view class="content-index" style="height:calc(100vh - {{2*navH+150}}rpx);">
+<view class="hidden-scoll">
+<view class="tab-container">
+  <view class="tab-items" style="transform:{{'translateX('+currentTab*(-everyClickLen)+'rpx)'}};transition:all 0.4s;width: {{tabItems.length*198+80}}rpx;">
+    <block wx:for="{{tabItems}}" wx:key="index">
+      <view class="tab-item" style="color:{{currentTab==index?item.navbar_color_text:'#999'}};font-size:{{currentTab==index?'34rpx':'30rpx'}};margin-left:{{index==0?'40rpx':'0rpx'}};transition:all 0.4s" data-current="{{index}}" bindtap="swichNav">{{item.navbar_title}}</view>
+    </block>
+  </view>
+<view class="tab-bg" style="transform:{{'translateX('+currentTab*(198-everyClickLen)+'rpx)'}};transition:all 0.4s;background-color:{{tabItems[currentTab].navbar_color_bg}}"></view>
+</view>
+</view>
+
+  <swiper  circular="true" skip-hidden-item-layout="1" class="tab-content" current="{{currentTab}}" duration="{{dn}}" bindchange="switchTab">
+  <block wx:for="{{platesData}}" wx:key="index">
+      <swiper-item>
+      <view scroll-y="true" class="scoll-h">
+        <view class="flex-container">
+          <block wx:for="{{platesData[index].plates}}" wx:key="index">
+            <tabs tabcolor="{{index % 2==0?'#FE8F47':'#4586D4'}}" data-index="{{index}}" data-forum_id="{{item.forum_id}}" data-navbar_id="{{item.navbar_id}}" bindf4="f4" TabContent="{{item.forum_title}}" base64="{{item.forum_icon}}"
+              data-forum_title="{{item.forum_title}}" ></tabs>
+          </block>
+        </view>
+      </view>
+    </swiper-item>
+  </block>
+  </swiper>
+  </view>
+<view class="forSearchBox">
+  <searchBox bindtoSearchPage="toSearchPage"></searchBox>
+</view> 
+
+ <!-- </view> -->

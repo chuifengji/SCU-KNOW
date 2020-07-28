@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+      "modal": "/components/CustomModal/CustomModal"
+  },
+  "enablePullDownRefresh": false,
+  "disableScroll": true
+}

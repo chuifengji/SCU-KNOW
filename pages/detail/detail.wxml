@@ -1,0 +1,17 @@
+<!--pages/detail/detail.wxml-->
+<!-- <view style="filter: grayscale(100%);">   -->
+
+<nav bindtoFeedback="tfd"></nav>
+<view class="container" style="height:calc(100vh - {{2*navH}}rpx);top:{{2*navH}}rpx;position:fixed;width:750rpx;">
+  <view class="virtual-nav" style="top:{{2*navH+30}}rpx">
+    <view class="nav-text">{{nav_text}}</view>
+    <view class="backicon" bindtap='navBack' style="background-image:url('data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjIxMCI+PGRlZnM+PHN0eWxlLz48L2RlZnM+PHBhdGggZD0iTTc1Mi44MDM5NjggMGMxOC41NTg5NzYgMCAzNy4wMTc2IDYuNDUxMiA1MS4wNjE3NiAxOS41NTg0IDI4LjI5MDA0OCAyNi4xMTA5NzYgMjguMjkwMDQ4IDY4LjQwMTE1MiAwIDk0LjQwOTcyOGwtNDMxLjI2Nzg0IDM5OC4wMTg1NiA0MzEuMjY3ODQgMzk4LjAxODU2YzI4LjI5MDA0OCAyNi4xMTIgMjguMjkwMDQ4IDY4LjMwMDggMCA5NC40MTA3NTItMjguMDg4MzIgMjYuMTEyLTczLjgzNDQ5NiAyNi4xMTItMTAyLjAyNDE5MiAwbC00ODIuMzI5Ni00NDUuMjIzOTM2Yy0yOC40OTA3NTItMjYuMDA4NTc2LTI4LjQ5MDc1Mi02OC4xOTYzNTIgMC05NC4zMDczMjhsNDgyLjMyOTYtNDQ1LjMyNzM2QzcxNS45ODcwNzIgNi41NTM2IDczNC40NDU2OTYgMCA3NTIuODAzOTY4IDAiIGZpbGw9IiMyYzJjMmMiLz48L3N2Zz4=')"></view>
+  </view>
+  <view class="maincontent"  style="height:calc(100vh - {{2*navH+200}}rpx);top:{{2*navH+120}}rpx;position:fixed;">
+    <block wx:for="{{bkdatas}}" wx:key="index">
+      <answers bindbgchange="bgchange" data-index="{{index}}" data-question_id="{{item.question_id}}" question_title="{{item.question_title}}" question_content="{{item.question_content}}" data-question_title="{{item.question_title}}" data-question_content="{{item.question_content}}"
+        data-question_update_time="{{item.question_update_time}}" bgcolor="{{index % 2==0?'#FFF4E3':'#D6E4F0'}}" tcolor="{{index % 2==0?'#FF802E':'#2E7AD6'}}" animation_delay="{{item.animation_delay}}"></answers>
+    </block>
+  </view>
+</view>
+<!-- </view> -->

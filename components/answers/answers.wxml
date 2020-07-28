@@ -1,0 +1,4 @@
+<view class="con" bindtap="change" style="background-color:{{bgcolor}};color:{{tcolor}};animation-delay:{{animation_delay}}ms;">
+<view class="question_title" >{{question_title}}</view>
+<view class="question_content" >{{question_content}}</view>
+</view>

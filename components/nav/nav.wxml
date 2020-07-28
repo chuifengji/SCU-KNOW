@@ -1,0 +1,9 @@
+<view class='nav bg-white' style='height:{{navH}}px'>
+<view class='nav-title'>
+ <i class="feedback iconfont iconfeedback" bindtap="skipToSomePage"></i>
+  <text>小民问答</text>
+  </view>
+</view>
+
+
+

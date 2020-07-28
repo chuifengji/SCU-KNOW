@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "tabs": "/components/classify_tab/classify_tab",
+    "searchBox": "/components/searchBox/searchBox"
+  },
+  "enablePullDownRefresh": false,
+  "disableScroll": true
+}

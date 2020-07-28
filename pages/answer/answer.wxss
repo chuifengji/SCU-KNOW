@@ -1,0 +1,108 @@
+page{
+ margin: 0;
+ padding: 0;
+}
+.virtual-nav{
+position: fixed;
+width: 750rpx;
+height: 60rpx;
+}
+.nav-text{
+font-size: 38rpx;
+line-height: 60rpx;
+width: 600rpx;
+height: 60rpx;
+left: 110rpx;
+position: relative;
+font-weight:600;
+}
+.backicon{
+ border-top: 10rpx solid transparent;
+  border-bottom: 10rpx solid transparent;
+  border-right: 30rpx solid transparent;
+  border-left: 20rpx solid transparent;
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  margin-left: 20rpx;
+  background-size: cover;
+  background-repeat: no-repeat;
+  bottom: 0;
+  left: 0;
+}
+.answer{
+  font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+ -webkit-overflow-scrolling: touch;
+ left:40rpx;
+  padding-right: 80rpx;
+  font-size: 32rpx;
+  width: 750rpx;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  text-align:justify;
+  word-break: break-all;
+  box-sizing: border-box;
+  line-height:1.8; 
+   color: #333;
+  }
+  .time{
+    font-size: 26rpx;
+    display: block;
+    color: rgba(179, 177, 177, 0.76);
+    left:40rpx;
+  }
+  .evaluateLeft{
+    width: 375rpx;
+    height: 104rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #D6E4F0;
+  
+
+  }
+  .evaluateRight{
+    width: 376rpx;
+  height: 104rpx;
+   position: fixed;
+   bottom: 0;
+   right: 0;
+   background-color: #FFF4E3;
+
+  }
+  .evaluateIconOne{
+  position: relative;
+  left: 103rpx;
+  top: 23rpx;
+  font-size: 58rpx;
+  color: #333;
+
+  }
+  .evaluateIconTwo{
+  position: relative;
+  left: 105rpx;
+  top: 23rpx;
+   font-size: 58rpx;
+  color: #333;
+  }
+  .textOne{
+  position: absolute;
+  width: 96rpx;
+  left: 176rpx;
+  height: 58rpx;
+  top: 23rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 58rpx;
+
+  }
+  .textTwo{
+  position: absolute;
+  width: 100rpx;
+    font-size: 30rpx;
+    line-height: 58rpx;
+  left: 178rpx;
+  height: 58rpx;
+  top: 23rpx;
+  }

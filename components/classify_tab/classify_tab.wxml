@@ -1,0 +1,10 @@
+<view class="tab-item" bindtap="ishow" style="background-color:{{tabcolor}}">
+    <view class="roundv">
+    <view  hidden="{{!isshow}}" class="round"  style="background-color:{{tabcolor}}"></view>
+    </view>
+      <view class="tab-content">{{TabContent}}</view>
+     <view>
+      <view class="backicon" style="background-image:url('{{base64}}')"></view>
+      </view>
+    </view>
+

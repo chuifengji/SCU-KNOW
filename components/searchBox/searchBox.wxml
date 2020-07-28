@@ -1,0 +1,7 @@
+<!--components/searchBox/searchBox.wxml-->
+<view class="outBox">
+  <view  class="innerBox"  bindtap="skipToSomePage"  >
+    <i class="searchImg iconfont iconsearch"></i>
+    <view class="promptLine">搜索你想要查找的问题</view>
+  </view>
+</view>
