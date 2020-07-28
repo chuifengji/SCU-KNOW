@@ -80,7 +80,7 @@ Page({
         title: '反馈成功',
       })
       let id = this.data.question_id
-      app.netHandlers.netRemark(id);
+      app.netHandlers.netRemarkLike(id);
       cache[id] = true;
       wx.setStorageSync('cache_key', cache);
       that.setData({
@@ -106,13 +106,7 @@ Page({
     var cache = wx.getStorageSync('cache_key');
     let that = this;
     if (status ===undefined || status===1){
-      wx.request({
-        url: 'https://wenda.new-thread.com/api/dislike_question/' + id + '/',
-        method: 'POST',
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-      })
+      pp.netHandlers.netRemarkDislike(id);
       cache[id] = 0;
       wx.setStorageSync('cache_key', cache);
       that.setData({

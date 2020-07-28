@@ -7,7 +7,7 @@ class netHandlers {
   constructor() {
     this._baseUrl = config.request_server_url
     this._defaultHeaderGet = { 'data-type': 'application/json' }
-    this._defaultHeaderOthers = { 'data-type': 'application/x-www-form-urlencoded' }
+    this._defaultHeaderOthers = { "Content-Type": "application/x-www-form-urlencoded" }
     this._request = new request(this._defaultHeaderGet,this._defaultHeaderOthers)
     this._request.setErrorHandler(this.errorHander)
   }
@@ -41,17 +41,24 @@ netSearch(value){
  */
 netFeedback(feedback_question,feedback_type){
   let data = {
-    feedback_question: feedback_question,
-    feedback_type: feedback_type
+    feedback_question,
+    feedback_type,
   }
   return this._request.postRequest(this._baseUrl+"feedback/",data).then(res=>{res.data})
 }
 /**
  * 
- * 点评
+ * 点评-喜欢
  */
-netRemark(id){
+netRemarkLike(id){
   return this._request.postRequest(this._baseUrl+""+id+"/",{}).then(res=>{res.data})//TODO：这里接口为空，不知是遗漏了还是本来就没有，忘了hhh 20-07-28
+}
+/**
+ * 
+ * 点评-不喜欢
+ */
+netRemarkDislike(id){
+  return this._request.postRequest(this._baseUrl+"dislike_question/"+id+"/",{}).then(res=>{res.data})
 }
 }
 export default netHandlers

@@ -57,12 +57,14 @@ Page({
         title: '输入不能为空',
         icon: 'none'
       })
-    } else if (pattern.test(s)) {
-      wx.showToast({
-        title: '你在搞事情啊',
-        icon: 'none'
-      })
-    }
+    } 
+    
+    // else if (pattern.test(s)) {
+    //   wx.showToast({
+    //     title: '你在搞事情啊',
+    //     icon: 'none'
+    //   })
+    // }
     for (var i = 0; i < s.length; i++) {
       rs = rs + s.substr(i,1).replace(patternReal,'');
     }
@@ -70,32 +72,21 @@ Page({
     return rs;
   }, //XSS以及SQL简单过滤
   submit: util.throttle(function () {
-    var timer;
-    let feedback_type = this.data.kindsOne;
-    let feedback_question = this.data.feedback_question;
-    console.log(feedback_question)
-    if (feedback_question == '') {
+    let timer,
+     feedback_type = this.data.kindsOne,
+    feedback_question = this.data.feedback_question;
+    if (feedback_question === '') {
       wx.showToast({
         title: '输入不能为空',
         icon: 'none'
       })
-    } else if (feedback_question == this.data.lastfeedback) {
+    } else if (feedback_question === this.data.lastfeedback) {
       wx.showToast({
         title: '你已经提交过了',
         icon: 'none'
       })
-    } else if (feedback_question && feedback_question != this.data.lastfeedback) {
-      wx.request({
-        url: '',
-        method: 'POST',
-        data: {
-          feedback_question: feedback_question,
-          feedback_type: feedback_type
-        },
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-      })
+    } else if (feedback_question && feedback_question !== this.data.lastfeedback) {
+      app.netHandlers.netFeedback(feedback_question,feedback_type);
       this.setData({
         bgchange: 1,
         lastfeedback: feedback_question
