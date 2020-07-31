@@ -1,4 +1,4 @@
-<wxs src='../../utils/substring.wxs' module='tools'/>
+<!-- <wxs src='../../utils/substring.wxs' module='tools'/> -->
 <!-- <view style="filter: grayscale(100%);">  -->
 <nav bindtoFeedback="toFeedback"></nav>
 <view class="content-index" style="height:calc(100vh - {{2*navH+150}}rpx);">
