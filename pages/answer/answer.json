@@ -1,6 +1,7 @@
 {
     "usingComponents": {
-      "modal": "/components/CustomModal/CustomModal"
+      "modal": "/components/CustomModal/CustomModal",
+      "parser":"parser-wx"
   },
   "enablePullDownRefresh": false,
   "disableScroll": true

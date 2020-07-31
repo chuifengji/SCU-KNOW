@@ -30,22 +30,22 @@ font-weight:600;
   bottom: 0;
   left: 0;
 }
-.answer{
+.parser-container{
   font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
  -webkit-overflow-scrolling: touch;
- left:40rpx;
-  padding-right: 80rpx;
   font-size: 32rpx;
   width: 750rpx;
+  left: 40rpx;
+  padding-right: 80rpx;
   overflow-y: auto;
   overflow-x: hidden;
   word-wrap: break-word;
   text-align:justify;
   word-break: break-all;
-  box-sizing: border-box;
   line-height:1.8; 
    color: #333;
-  }
+   box-sizing: border-box;
+}
   .time{
     font-size: 26rpx;
     display: block;
@@ -59,8 +59,6 @@ font-weight:600;
     bottom: 0;
     left: 0;
     background-color: #D6E4F0;
-  
-
   }
   .evaluateRight{
     width: 376rpx;
@@ -69,7 +67,6 @@ font-weight:600;
    bottom: 0;
    right: 0;
    background-color: #FFF4E3;
-
   }
   .evaluateIconOne{
   position: relative;
@@ -106,3 +103,5 @@ font-weight:600;
   height: 58rpx;
   top: 23rpx;
   }
+
+  
