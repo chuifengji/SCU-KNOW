@@ -1,0 +1,7 @@
+var getText = function(html){
+  var re = getRegExp('<[^<>]+>','g');
+  var kg = getRegExp('/&nbsp;/','g');
+  var text = html.replace(re ,"").replace(kg,"");
+  return text;
+}
+module.exports.getText = getText

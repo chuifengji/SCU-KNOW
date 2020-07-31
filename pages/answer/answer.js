@@ -32,12 +32,14 @@ Page({
   },
 
   onLoad: function (options) {
+ 
     console.log(options, 13)
     wx.showShareMenu({
       withShareTicket: true
     })
     var pages = getCurrentPages();
     var Page = pages[pages.length - 2];
+    console.log(Page.otherData.quescontent)
     if (options.answer_title) { //当前入口为转发模式
       console.log(options)
       this.setData({
