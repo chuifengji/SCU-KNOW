@@ -9,7 +9,7 @@ Page({
       td: `display: table-cell;text-align:center;vertical-align: inherit;border: 1px solid #dedede;padding: 0.2rem 1rem 0 1rem;`,
       img: `margin-left: auto;margin-right: auto;max-width: 100%;height: auto;box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.12),
         0 2px 10px 0 rgba(34, 36, 38, 0.08);`,
-      blockquote:`border-left-width: 4px;
+      blockquote: `border-left-width: 4px;
       border-left-style: solid;
       color: #9e9e9e;
       margin: 0;
@@ -27,32 +27,47 @@ Page({
     true: 1,
     isShowModal: false,
     question_id: 0,
-    likestatus: 'undefined',
-    question_test: ''
-  },
+    question_test: '',
 
+  },
+  otherData: {
+    fromShare: false,
+    likestatus: 'undefined',
+  },
+  onShareAppMessage: function (res) {
+    let obj = {
+      answer_id: this.data.question_id,
+      answer_title: this.data.nav_text_ans,
+      answer_time: this.data.question_update_time,
+      answer_content: this.data.question_content,
+    }
+    let answerJson = encodeURIComponent(JSON.stringify(obj));
+    console.log(answerJson)
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: this.data.nav_text_ans,
+      path: '/pages/answer/answer?answerJson=' + answerJson
+    }
+  },
   onLoad: function (options) {
- 
-    console.log(options, 13)
     wx.showShareMenu({
       withShareTicket: true
     })
-    var pages = getCurrentPages();
-    var Page = pages[pages.length - 2];
-    console.log(Page.otherData.quescontent)
-    if (options.answer_title) { //当前入口为转发模式
-      console.log(options)
+   let pages = getCurrentPages(),
+    Page = pages[pages.length - 2];
+    if(options.answerJson){
+      let cb = JSON.parse(decodeURIComponent(options.answerJson));
+      this.otherData.fromShare = true;
       this.setData({
-        question_content: options.answer_content,
-        nav_text_ans: options.answer_title,
-        question_update_time: options.answer_time,
-        question_id: options.answer_id
+        question_content: cb.answer_content,
+        nav_text_ans: cb.answer_title,
+        question_update_time: cb.answer_time,
+        question_id: cb.answer_id
       })
-    } else {
-      // console.log(Page.otherData.quescontent)
-      // Page.otherData.quescontent = Page.otherData.quescontent.replace(/\n/g,"<br>").replace(/\r\n/g,"<br>").replace(/\s/g,"&nbsp;");
-      // //未使用富文本时，后台传过来的数据做了正则替换，现在不需要了，就在前台再给正则回来吧。200801
-      // console.log(Page.otherData.quescontent)
+    }else{
       this.setData({
         question_content: Page.otherData.quescontent,
         nav_text_ans: Page.otherData.nav_text_ans,
@@ -72,9 +87,7 @@ Page({
       } else {
         status: 'undefined';
       }
-      that.setData({
-        likestatus: status
-      })
+      this.otherData.likestatus = status;
     } else {
       var cache = {};
       wx.setStorageSync('cache_key', cache)
@@ -82,9 +95,16 @@ Page({
   },
 
   navBack: util.throttle(function () {
-    wx.navigateBack({
-      changed: true
-    })
+    if (this.otherData.fromShare) {
+      wx.navigateTo({
+        url: '/pages/index/index',
+      })
+    } else {
+      wx.navigateBack({
+        changed: true
+      })
+    }
+
   }, 300),
   tfd: util.throttle(function () {
     wx.navigateTo({
@@ -92,7 +112,7 @@ Page({
     })
   }, 300),
   thinkGood: util.throttle(function () {
-    let status = this.data.likestatus;
+    let status = this.otherData.likestatus;
     var cache = wx.getStorageSync('cache_key');
     let that = this;
     if (status === undefined || status === 0) {
@@ -103,9 +123,7 @@ Page({
       app.netHandlers.netRemarkLike(id);
       cache[id] = true;
       wx.setStorageSync('cache_key', cache);
-      that.setData({
-        likestatus: 1
-      })
+      this.otherData.likestatus = 1;
     } else {
       wx.showToast({
         title: '你已经满意过啦',
@@ -128,9 +146,7 @@ Page({
       pp.netHandlers.netRemarkDislike(id);
       cache[id] = 0;
       wx.setStorageSync('cache_key', cache);
-      that.setData({
-        likestatus: 0
-      })
+      this.otherData.likestatus = 0;
     }
 
   }, 300),
@@ -141,8 +157,8 @@ Page({
   }, 300),
   confirm: util.throttle(function () {
     this.setData({
-      isShowModal: false
-    }),
+        isShowModal: false
+      }),
       wx.navigateTo({
         url: '../feedback/feedback',
       })
