@@ -4,6 +4,7 @@ App({
   onLaunch: function () {
     var that = this
     that.netHandlers.netGetData().then(data=>{
+      console.log(data)
       try{
         wx.setStorageSync('datas', data);
         that.globalData.getted = 1

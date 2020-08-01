@@ -49,6 +49,10 @@ Page({
         question_id: options.answer_id
       })
     } else {
+      // console.log(Page.otherData.quescontent)
+      // Page.otherData.quescontent = Page.otherData.quescontent.replace(/\n/g,"<br>").replace(/\r\n/g,"<br>").replace(/\s/g,"&nbsp;");
+      // //未使用富文本时，后台传过来的数据做了正则替换，现在不需要了，就在前台再给正则回来吧。200801
+      // console.log(Page.otherData.quescontent)
       this.setData({
         question_content: Page.otherData.quescontent,
         nav_text_ans: Page.otherData.nav_text_ans,
