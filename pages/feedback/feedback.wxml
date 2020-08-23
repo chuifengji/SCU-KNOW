@@ -20,8 +20,13 @@
   <view class="textTwo">可以说的详细一点吗？</view>
   <textarea wx:if="{{!isShowText}}" class="textareaTwo" maxlength="100" bindfocus="selectUp" bindblur="blurInput" bindconfirm="confirmandput" focus="{{onFacus}}" value="{{feedback_question}}" ></textarea>
   <view wx:else class="remarks" bindtap="onShowTextarea"><text wx:if="{{boolTwo}}" style="color: #b7b7b7;font-size: 30rpx;">请详细描述你的说明</text>{{feedback_question}}</view>
+  <view style="text-align:center;margin-top:30rpx;color:#b7b7b7;font-size:28rpx;">© NewThread 技术支持 V2.0</view>
   <view style="width:750rpx;height:188rpx;bottom:0;position:fixed">
     <view class="submitButton {{bgchange?'bg2':'bg1'}}" bindtap="submit">提交</view>
   </view>
   </view>
 </view>
+
+
+
+

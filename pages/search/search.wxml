@@ -1,6 +1,6 @@
 <!--pages/search/search.wxml-->
+<wxs src='../../utils/getText.wxs' module='tools'/>
 <nav bindtoFeedback="tfd"></nav>
-
 <block wx:if="{{hasResult}}">
   <view style="height:500rpx;width:750rpx;position:relative;top:200rpx;">
     <view class="noresult"></view>
@@ -12,12 +12,11 @@
       <text style="color:#2E7AD6">选课</text>”试试</view>
   </view>
 </block>
-
 <view class="container" style="height:calc(100vh - {{2*navH}}rpx);top:{{2*navH+30}}rpx;position:fixed;width:750rpx;">
     <view class="searchValue" style="height:70rpx;top:{{2*navH+40}}rpx;position:fixed;display:{{bool?'none':'block'}}"><text style="color:#2E7AD6">{{searchValue}}</text>相关如下</view>
   <view class="maincontent" style="height:calc(100vh - {{2*navH+110+148}}rpx);top:{{2*navH+110}}rpx;position:fixed;">
     <block wx:for="{{bkdatas}}" wx:key="index">
-      <answers bindbgchange="bgchange" data-index="{{index}}" question_title="{{item.question_title}}" question_content="{{item.question_content}}" data-question_title="{{item.question_title}}" data-question_content="{{item.question_content}}" data-question_update_time="{{item.question_update_time}}"
+      <answers bindbgchange="bgchange" data-index="{{index}}" question_title="{{item.question_title}}" question_content="{{tools.getText(item.question_content)}}" data-question_title="{{item.question_title}}" data-question_content="{{item.question_content}}" data-question_update_time="{{item.question_update_time}}"
         bgcolor="{{index % 2==0?'#FFF4E3':'#D6E4F0'}}" tcolor="{{index % 2==0?'#FF802E':'#2E7AD6'}}" animation_delay="{{item.animation_delay}}"></answers>
     </block>
   </view>
